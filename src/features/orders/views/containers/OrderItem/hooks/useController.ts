@@ -1,8 +1,8 @@
 import { useMemo } from "react"
-import type { ItemEntityId, OrderEntityId } from "../../../../types"
 import type { Controller } from "../OrderItem.types"
 import { useRootDispatch } from "../../../../../../hooks"
-import { deleteItemById } from "../../../../thunks"
+import type { ItemEntityId, OrderEntityId } from "../../../../types"
+import { deleteItemById } from "../../../../slice"
 
 export const useController = (params: {
   orderId: OrderEntityId

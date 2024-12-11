@@ -1,8 +1,8 @@
 import { useMemo } from "react"
 import { useRootSelector } from "../../../../../../hooks"
-import { isLastOrderSelector, orderByIdSelector } from "../../../../selectors"
-import type { OrderEntityId } from "../../../../types"
+import { isLastOrderSelector, orderByIdSelector } from "../../../selectors"
 import type { Presenter } from "../Order.types"
+import type { OrderEntityId } from "../../../../types"
 
 export const usePresenter = (orderId: OrderEntityId): Presenter => {
   const order = useRootSelector(state => orderByIdSelector(state, orderId))

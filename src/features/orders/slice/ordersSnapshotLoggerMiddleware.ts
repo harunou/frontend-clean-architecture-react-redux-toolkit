@@ -1,6 +1,6 @@
 import { type RootState } from "../../../stores/rootStore.types"
 import type { Dispatch, MiddlewareAPI } from "@reduxjs/toolkit"
-import { getServiceGateway } from "../gateways"
+import { getServiceGateway } from "./gateways"
 
 export const ordersSnapshotLoggerMiddleware =
   (api: MiddlewareAPI<Dispatch, RootState>) =>

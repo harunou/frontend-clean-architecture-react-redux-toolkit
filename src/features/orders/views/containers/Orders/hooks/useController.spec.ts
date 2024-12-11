@@ -4,7 +4,7 @@ import { renderHook } from "@testing-library/react"
 import { makeTestOrderEntities } from "../../../../utils/testing"
 import { sleep } from "../../../../../../utils"
 import { makeComponentFixture } from "../../../../../../utils/testing/makeComponentFixture"
-import { getOrdersGateway } from "../../../../gateways"
+import { getOrdersGateway } from "../../../../slice"
 
 describe(`${useController.name}`, () => {
   beforeEach(() => {

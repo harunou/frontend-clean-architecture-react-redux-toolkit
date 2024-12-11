@@ -4,11 +4,11 @@ import {
   attachDeleteOrderByIdCases,
   attachLoadOrdersCases,
   attachUpdateQuantityByItemIdCases,
-} from "../thunks"
+} from "./thunks"
 import type { OrdersSliceState } from "../types"
-import { itemEntityAdapter, orderEntityAdapter } from "../entities"
+import { itemEntityAdapter, orderEntityAdapter } from "./entities"
 
-export const initialState: OrdersSliceState = {
+export const ordersInitialState: OrdersSliceState = {
   orderEntities: orderEntityAdapter.getInitialState(),
   itemEntities: itemEntityAdapter.getInitialState(),
   orderPresentation: {
@@ -18,7 +18,7 @@ export const initialState: OrdersSliceState = {
 
 export const ordersSlice = makeRootSlice({
   name: "orders",
-  initialState,
+  initialState: ordersInitialState,
   reducers: () => ({}),
   extraReducers: builder => {
     attachDeleteOrderByIdCases(builder)

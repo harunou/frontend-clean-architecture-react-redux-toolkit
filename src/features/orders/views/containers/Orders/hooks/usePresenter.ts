@@ -1,7 +1,7 @@
 import { useMemo } from "react"
 import { useSelector } from "../../../../../../hooks/useSelector"
 import type { Presenter } from "../Orders.types"
-import { orderEntitySelectors, totalOrderItemQuantitySelector } from "../../../../selectors"
+import { orderEntitySelectors, totalOrderItemQuantitySelector } from "../../../selectors"
 
 export const usePresenter = (): Presenter => {
   const orders = useSelector(store => orderEntitySelectors.selectAll(store.orders))

@@ -10,7 +10,7 @@ import {
 } from "../orders/views/testIds"
 import { makeTestOrderEntities } from "../orders/utils/testing"
 import { test, vi } from "vitest"
-import { getOrdersGateway } from "../orders/gateways"
+import { getOrdersGateway } from "../orders/slice"
 
 test("delete order button deletes an order with items", async () => {
   const entities = makeTestOrderEntities()

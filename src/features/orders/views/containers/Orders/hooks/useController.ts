@@ -1,7 +1,7 @@
 import { useMemo, useRef } from "react"
 import type { Controller } from "../Orders.types"
 import { useRootDispatch } from "../../../../../../hooks"
-import { loadOrders } from "../../../../thunks"
+import { loadOrders } from "../../../../slice"
 import { sleep } from "../../../../../../utils"
 
 export const useController = (): Controller => {

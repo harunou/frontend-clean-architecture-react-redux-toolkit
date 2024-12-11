@@ -1,6 +1,6 @@
 import { useMemo } from "react"
 import { useRootSelector } from "../../../../../../hooks"
-import { isLastItemSelector, itemByIdSelector } from "../../../../selectors"
+import { isLastItemSelector, itemByIdSelector } from "../../../selectors"
 import type { ItemEntityId, OrderEntityId } from "../../../../types"
 import type { Presenter } from "../OrderItem.types"
 

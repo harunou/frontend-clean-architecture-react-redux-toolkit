@@ -1,6 +1,6 @@
 import type { EntityState } from "@reduxjs/toolkit"
-import type { Nominal, UniqueEntity } from "../../../../../@types"
 import type { ItemEntityId } from "../ItemEntity"
+import type { Nominal, UniqueEntity } from "../../../../../@types"
 
 export type OrderEntityId = Nominal<string, "ORDER_ENTITY_ID">
 

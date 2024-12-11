@@ -3,10 +3,10 @@ import { type FC } from "react"
 import { ordersTestId, orderTestId, totalItemQuantityTestId } from "../../testIds"
 import { Orders } from "./Orders"
 import { describe, it, expect, beforeEach } from "vitest"
-import type { ItemEntity, OrderEntity } from "../../../types"
 import { makeTestOrderEntities } from "../../../utils/testing"
 import { makeComponentFixture } from "../../../../../utils/testing/makeComponentFixture"
-import { getOrdersGateway } from "../../../gateways"
+import type { ItemEntity, OrderEntity } from "../../../types"
+import { getOrdersGateway } from "../../../slice"
 
 interface LocalTestContext {
   orders: OrderEntity[]

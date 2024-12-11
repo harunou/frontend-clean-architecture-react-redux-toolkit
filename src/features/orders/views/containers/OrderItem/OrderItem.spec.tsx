@@ -1,15 +1,23 @@
 import { render, screen } from "@testing-library/react"
 import { type FC, act } from "react"
 import { describe, it, expect, beforeEach } from "vitest"
-import { itemEntityAdapter, orderEntityAdapter } from "../../../entities"
-import { updateQuantityByItemId } from "../../../thunks"
-import type { OrderEntityId, ItemEntityId, OrderEntity, ItemEntity } from "../../../types"
 import { OrderItem } from "./OrderItem"
 import { makeTestOrderEntities } from "../../../utils/testing"
 import type { RootState, RootStore } from "../../../../../stores/rootStore.types"
 import { makeComponentFixture } from "../../../../../utils/testing/makeComponentFixture"
-import { initialState } from "../../../slice"
-import { getOrdersGateway } from "../../../gateways"
+import {
+  type ItemEntity,
+  type ItemEntityId,
+  type OrderEntity,
+  type OrderEntityId,
+} from "../../../types"
+import {
+  getOrdersGateway,
+  itemEntityAdapter,
+  orderEntityAdapter,
+  ordersInitialState,
+  updateQuantityByItemId,
+} from "../../../slice"
 
 interface LocalTestContext {
   Sut: FC<{ orderId: OrderEntityId; itemId: ItemEntityId }>
@@ -23,7 +31,7 @@ describe(`${OrderItem.displayName}`, () => {
     const entities = makeTestOrderEntities()
     const preloadedState: Partial<RootState> = {
       orders: {
-        ...initialState,
+        ...ordersInitialState,
         orderEntities: orderEntityAdapter.getInitialState({}, entities.orders),
         itemEntities: itemEntityAdapter.getInitialState({}, entities.items),
       },

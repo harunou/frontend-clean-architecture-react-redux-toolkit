@@ -67,59 +67,44 @@ For the units implementation, it is suggested to use Cluster Lifecycle model des
 │   │   ├── httpClient.ts
 │   │   └── index.ts
 │   └── index.ts
-├── entities
-│   ├── adapters.ts
-│   └── index.ts
-├── gateways
-│   ├── HybridOrdersGateway
-│   │   ├── HybridOrdersGateway.spec.ts
-│   │   ├── HybridOrdersGateway.ts
-│   │   ├── LocalOrdersGateway
-│   │   │   ├── LocalOrdersGateway.spec.ts
-│   │   │   ├── LocalOrdersGateway.ts
-│   │   │   └── index.ts
-│   │   ├── RemoteOrdersGateway
-│   │   │   ├── RemoteOrdersGateway.spec.ts
-│   │   │   ├── RemoteOrdersGateway.ts
-│   │   │   ├── RemoteOrdersGateway.utils.ts
-│   │   │   └── index.ts
-│   │   └── index.ts
-│   ├── RemoteServiceGateway
-│   │   ├── RemoteServiceGateway.ts
-│   │   ├── RemoteServiceGatewayStub.ts
-│   │   └── index.ts
-│   └── index.ts
 ├── index.ts
-├── selectors
-│   ├── index.ts
-│   ├── isLastItemSelector.ts
-│   ├── isLastOrderSelector.ts
-│   ├── itemByIdSelector
-│   │   ├── index.ts
-│   │   ├── itemByIdSelector.spec.tsx
-│   │   └── itemByIdSelector.ts
-│   ├── itemEntitySelectors.ts
-│   ├── orderByIdSelector
-│   │   ├── index.ts
-│   │   └── orderByIdSelector.ts
-│   ├── orderEntitySelectors.ts
-│   └── totalQuantitySelector
-│       ├── index.ts
-│       ├── totalQuantitySelector.spec.tsx
-│       └── totalQuantitySelector.ts
 ├── slice
+│   ├── entities
+│   │   ├── adapters.ts
+│   │   └── index.ts
+│   ├── gateways
+│   │   ├── HybridOrdersGateway
+│   │   │   ├── HybridOrdersGateway.spec.ts
+│   │   │   ├── HybridOrdersGateway.ts
+│   │   │   ├── LocalOrdersGateway
+│   │   │   │   ├── LocalOrdersGateway.spec.ts
+│   │   │   │   ├── LocalOrdersGateway.ts
+│   │   │   │   └── index.ts
+│   │   │   ├── RemoteOrdersGateway
+│   │   │   │   ├── RemoteOrdersGateway.spec.ts
+│   │   │   │   ├── RemoteOrdersGateway.ts
+│   │   │   │   ├── RemoteOrdersGateway.utils.ts
+│   │   │   │   └── index.ts
+│   │   │   └── index.ts
+│   │   ├── RemoteServiceGateway
+│   │   │   ├── RemoteServiceGateway.ts
+│   │   │   ├── RemoteServiceGatewayStub.ts
+│   │   │   └── index.ts
+│   │   ├── getOrdersGateway.ts
+│   │   ├── getServiceGateway.ts
+│   │   └── index.ts
 │   ├── index.ts
 │   ├── ordersSlice.ts
-│   └── ordersSnapshotLoggerMiddleware.ts
-├── thunks
-│   ├── deleteItemById
-│   │   ├── deleteItemById.spec.ts
-│   │   ├── deleteItemById.ts
-│   │   └── index.ts
-│   ├── deleteOrderById.ts
-│   ├── index.ts
-│   ├── loadOrders.ts
-│   └── updateQuantityByItemId.ts
+│   ├── ordersSnapshotLoggerMiddleware.ts
+│   └── thunks
+│       ├── deleteItemById
+│       │   ├── deleteItemById.spec.ts
+│       │   ├── deleteItemById.ts
+│       │   └── index.ts
+│       ├── deleteOrderById.ts
+│       ├── index.ts
+│       ├── loadOrders.ts
+│       └── updateQuantityByItemId.ts
 ├── types
 │   ├── entities
 │   │   ├── ItemEntity
@@ -176,5 +161,22 @@ For the units implementation, it is suggested to use Cluster Lifecycle model des
     │   │   └── index.ts
     │   └── index.ts
     ├── index.ts
+    ├── selectors
+    │   ├── index.ts
+    │   ├── isLastItemSelector.ts
+    │   ├── isLastOrderSelector.ts
+    │   ├── itemByIdSelector
+    │   │   ├── index.ts
+    │   │   ├── itemByIdSelector.spec.tsx
+    │   │   └── itemByIdSelector.ts
+    │   ├── itemEntitySelectors.ts
+    │   ├── orderByIdSelector
+    │   │   ├── index.ts
+    │   │   └── orderByIdSelector.ts
+    │   ├── orderEntitySelectors.ts
+    │   └── totalQuantitySelector
+    │       ├── index.ts
+    │       ├── totalQuantitySelector.spec.tsx
+    │       └── totalQuantitySelector.ts
     └── testIds.ts
 ```
