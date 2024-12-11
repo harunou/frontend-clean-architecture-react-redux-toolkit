@@ -1,7 +1,6 @@
 import { render, screen } from "@testing-library/react"
 import { type FC, act } from "react"
 import { describe, it, expect, beforeEach } from "vitest"
-import { HybridOrdersGateway } from "../../../gateways"
 import { itemEntityAdapter, orderEntityAdapter } from "../../../entities"
 import { updateQuantityByItemId } from "../../../thunks"
 import type { OrderEntityId, ItemEntityId, OrderEntity, ItemEntity } from "../../../types"
@@ -10,6 +9,7 @@ import { makeTestOrderEntities } from "../../../utils/testing"
 import type { RootState, RootStore } from "../../../../../stores/rootStore.types"
 import { makeComponentFixture } from "../../../../../utils/testing/makeComponentFixture"
 import { initialState } from "../../../slice"
+import { getOrdersGateway } from "../../../gateways"
 
 interface LocalTestContext {
   Sut: FC<{ orderId: OrderEntityId; itemId: ItemEntityId }>
@@ -81,7 +81,7 @@ describe(`${OrderItem.displayName}`, () => {
     const item0 = context.items.find(item => item.id === order0.itemEntityIds.at(1))!
     const updatedItem0: ItemEntity = { ...item0, quantity: 9000 }
 
-    const gateway = HybridOrdersGateway.make()
+    const gateway = getOrdersGateway()
 
     vi.spyOn(gateway, "getOrders").mockResolvedValueOnce({
       orders: context.orders,

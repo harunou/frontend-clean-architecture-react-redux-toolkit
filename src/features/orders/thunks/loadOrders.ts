@@ -1,7 +1,7 @@
 import { type ActionReducerMapBuilder, createAsyncThunk } from "@reduxjs/toolkit"
 import type { ItemEntity, OrderEntity, OrdersSliceState } from "../types"
-import { HybridOrdersGateway } from "../gateways"
 import { itemEntityAdapter, orderEntityAdapter } from "../entities"
+import { getOrdersGateway } from "../gateways"
 
 export const loadOrders = createAsyncThunk(
   "orders/loadOrders",
@@ -9,7 +9,7 @@ export const loadOrders = createAsyncThunk(
     orders: OrderEntity[]
     items: ItemEntity[]
   }> => {
-    const gateway = HybridOrdersGateway.make()
+    const gateway = getOrdersGateway()
     const { orders, items } = await gateway.getOrders()
     return { orders, items }
   },

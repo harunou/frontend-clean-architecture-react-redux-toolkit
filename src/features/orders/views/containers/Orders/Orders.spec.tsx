@@ -1,12 +1,12 @@
 import { render, screen } from "@testing-library/react"
 import { type FC } from "react"
-import { HybridOrdersGateway } from "../../../gateways"
 import { ordersTestId, orderTestId, totalItemQuantityTestId } from "../../testIds"
 import { Orders } from "./Orders"
 import { describe, it, expect, beforeEach } from "vitest"
 import type { ItemEntity, OrderEntity } from "../../../types"
 import { makeTestOrderEntities } from "../../../utils/testing"
 import { makeComponentFixture } from "../../../../../utils/testing/makeComponentFixture"
+import { getOrdersGateway } from "../../../gateways"
 
 interface LocalTestContext {
   orders: OrderEntity[]
@@ -38,7 +38,7 @@ describe(`${Orders.displayName}`, () => {
   })
 
   it<LocalTestContext>("renders orders container with remote gateway", async context => {
-    const gateway = HybridOrdersGateway.make()
+    const gateway = getOrdersGateway()
 
     vi.spyOn(gateway, "getOrders").mockResolvedValueOnce({
       orders: context.orders,
@@ -55,7 +55,7 @@ describe(`${Orders.displayName}`, () => {
   })
 
   it<LocalTestContext>("renders total items quantity", async context => {
-    const gateway = HybridOrdersGateway.make()
+    const gateway = getOrdersGateway()
 
     vi.spyOn(gateway, "getOrders").mockResolvedValueOnce({
       orders: context.orders,

@@ -1,12 +1,12 @@
 import { type ActionReducerMapBuilder, createAsyncThunk } from "@reduxjs/toolkit"
 import type { ItemEntityId, OrderEntityId, OrdersSliceState } from "../../types"
-import { HybridOrdersGateway } from "../../gateways"
 import { itemEntityAdapter, orderEntityAdapter } from "../../entities"
+import { getOrdersGateway } from "../../gateways"
 
 export const deleteItemById = createAsyncThunk(
   "orders/deleteItemById",
   async (params: { orderId: OrderEntityId; itemId: ItemEntityId }): Promise<void> => {
-    const gateway = HybridOrdersGateway.make()
+    const gateway = getOrdersGateway()
     await gateway.deleteItem(params.orderId, params.itemId)
   },
 )

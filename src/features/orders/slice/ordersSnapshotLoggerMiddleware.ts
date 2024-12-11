@@ -1,6 +1,6 @@
 import { type RootState } from "../../../stores/rootStore.types"
-import { RemoteServiceGateway } from "../gateways"
 import type { Dispatch, MiddlewareAPI } from "@reduxjs/toolkit"
+import { getServiceGateway } from "../gateways"
 
 export const ordersSnapshotLoggerMiddleware =
   (api: MiddlewareAPI<Dispatch, RootState>) =>
@@ -13,7 +13,7 @@ export const ordersSnapshotLoggerMiddleware =
     const updatedState = api.getState().orders
 
     if (currentState !== updatedState) {
-      const gateway = RemoteServiceGateway.make()
+      const gateway = getServiceGateway()
       const orders = Object.values(updatedState.orderEntities.entities)
       const items = Object.values(updatedState.itemEntities.entities)
       gateway.logOrders(orders, items)

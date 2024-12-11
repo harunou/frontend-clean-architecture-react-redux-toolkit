@@ -1,10 +1,10 @@
 import { useController } from "./useController"
 import { vi } from "vitest"
 import { renderHook } from "@testing-library/react"
-import { HybridOrdersGateway } from "../../../../gateways"
 import { makeTestOrderEntities } from "../../../../utils/testing"
 import { sleep } from "../../../../../../utils"
 import { makeComponentFixture } from "../../../../../../utils/testing/makeComponentFixture"
+import { getOrdersGateway } from "../../../../gateways"
 
 describe(`${useController.name}`, () => {
   beforeEach(() => {
@@ -18,7 +18,7 @@ describe(`${useController.name}`, () => {
 
   it("runs and aborts loadOrders in order", async () => {
     const entities = makeTestOrderEntities()
-    const gateway = HybridOrdersGateway.make()
+    const gateway = getOrdersGateway()
     vi.spyOn(gateway, "getOrders").mockImplementation(async () => {
       await sleep()
       return entities

@@ -1,7 +1,6 @@
 import { render, screen } from "@testing-library/react"
 import App from "./App"
 import { makeComponentFixture } from "../../utils/testing/makeComponentFixture"
-import { HybridOrdersGateway } from "../orders/gateways"
 import { type FC } from "react"
 import {
   deleteItemButtonTestId,
@@ -11,10 +10,11 @@ import {
 } from "../orders/views/testIds"
 import { makeTestOrderEntities } from "../orders/utils/testing"
 import { test, vi } from "vitest"
+import { getOrdersGateway } from "../orders/gateways"
 
 test("delete order button deletes an order with items", async () => {
   const entities = makeTestOrderEntities()
-  const gateway = HybridOrdersGateway.make()
+  const gateway = getOrdersGateway()
   vi.spyOn(gateway, "getOrders").mockResolvedValueOnce(entities)
   vi.spyOn(gateway, "deleteOrder").mockResolvedValueOnce()
 
@@ -39,7 +39,7 @@ test("delete order button deletes an order with items", async () => {
 
 test("delete item button deletes one item in an order", async () => {
   const entities = makeTestOrderEntities()
-  const gateway = HybridOrdersGateway.make()
+  const gateway = getOrdersGateway()
   vi.spyOn(gateway, "getOrders").mockResolvedValueOnce(entities)
   vi.spyOn(gateway, "deleteItem").mockResolvedValueOnce()
 

@@ -1,2 +1,2 @@
-export * from "./HybridOrdersGateway"
-export * from "./RemoteServiceGateway"
+export * from "./getOrdersGateway"
+export * from "./getServiceGateway"

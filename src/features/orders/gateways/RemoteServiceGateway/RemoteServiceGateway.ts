@@ -4,7 +4,7 @@ import { RemoteServiceGatewayStub } from "./RemoteServiceGatewayStub"
 
 export class RemoteServiceGateway implements ServiceGateway {
   static make(): ServiceGateway {
-    if (import.meta.env.DEV) {
+    if (!import.meta.env.PROD) {
       return RemoteServiceGatewayStub.make()
     }
     return new RemoteServiceGateway(ServiceApi.make())

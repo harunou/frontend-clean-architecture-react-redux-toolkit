@@ -1,7 +1,7 @@
 import { type ActionReducerMapBuilder, createAsyncThunk } from "@reduxjs/toolkit"
 import type { ItemEntity, ItemEntityId, OrderEntityId, OrdersSliceState } from "../types"
-import { HybridOrdersGateway } from "../gateways"
 import { itemEntityAdapter } from "../entities"
+import { getOrdersGateway } from "../gateways"
 
 export const updateQuantityByItemId = createAsyncThunk(
   "orders/updateQuantityByItemId",
@@ -10,7 +10,7 @@ export const updateQuantityByItemId = createAsyncThunk(
     itemId: ItemEntityId
     quantity: number
   }): Promise<{ item: ItemEntity }> => {
-    const gateway = HybridOrdersGateway.make()
+    const gateway = getOrdersGateway()
 
     await gateway.updateItem(params.orderId, params.itemId, {
       quantity: params.quantity,
