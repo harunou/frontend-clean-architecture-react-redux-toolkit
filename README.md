@@ -1,4 +1,4 @@
-# Clean Architecture Implementation for React Application with Redux Toolkit
+# Fontend Clean Architecture with React and Redux Toolkit
 
 The repository provides an example React application that uses Redux Toolkit with [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) applied.
 
